@@ -1,11 +1,16 @@
 import { style } from "@vanilla-extract/css";
-import { sprinkles } from "./sprinkles.css.ts";
-import { vars } from "./light.css.ts";
+import { sprinkles } from "./sprinkles.css";
+import { vars } from "./light.css";
 
 export const bodyContainer = style([
   {
     gridTemplateAreas: '"sidebar mainContent"',
     gridTemplateColumns: "max-content auto",
+    margin: 0,
+    background: vars.colors.background.body,
+    fontFamily: "sans-serif",
+    lineHeight: "24px",
+    color: vars.colors.font.body,
   },
   sprinkles({
     display: "grid",
@@ -94,6 +99,10 @@ export const baseButton = style([
   sprinkles({
     background: "green-50",
   }),
+  {
+    border: "none",
+    cursor: "pointer",
+  },
 ]);
 
 export const tabContainer = style([
