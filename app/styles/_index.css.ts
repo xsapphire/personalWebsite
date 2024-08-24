@@ -28,7 +28,6 @@ export const introduction = style({
   color: vars.colors.font.subtitle,
   fontSize: "20px",
   lineHeight: "24px",
-  padding: "40px 0 20px 0",
 });
 
 export const cardHeaderIcon = style({

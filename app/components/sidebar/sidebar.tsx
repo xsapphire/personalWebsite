@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext } from "react";
+import { ReactElement, useContext } from "react";
 import { modeButton, sidebarContainer } from "../../styles/styles.css";
 import {
   IconDefinition,
@@ -33,9 +33,9 @@ const ChangeThemeButton = (): ReactElement => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <button
-      class={modeButton}
+      className={modeButton}
       onClick={() => {
-        toggleTheme((prevValue) => (prevValue === "light" ? "dark" : "light"));
+        toggleTheme ? toggleTheme(theme === "light" ? "dark" : "light") : null;
       }}
     >
       <ThemedIcon faIcon={theme === "light" ? faSun : faMoon} />
@@ -46,20 +46,32 @@ const ChangeThemeButton = (): ReactElement => {
 
 export const Sidebar = (): ReactElement => {
   return (
-    <div class={sidebarContainer}>
+    <div className={sidebarContainer}>
       <NavLink to="">
         <NameLogo width={80} height={80} fill="white" />
       </NavLink>
 
       <div
-        class={sprinkles({
-          display: "flex",
-          gap: "small",
-          flexDirection: "column",
+        className={sprinkles({
+          display: {
+            mobile: "flex",
+            tablet: "flex",
+            desktop: "flex",
+          },
+          gap: {
+            mobile: "exLarge",
+            tablet: "exLarge",
+            desktop: "small",
+          },
+          flexDirection: {
+            mobile: "column",
+            tablet: "column",
+            desktop: "column",
+          },
         })}
       >
         {navigation.map((n) => (
-          <SidebarItem {...n} />
+          <SidebarItem key={n.title} {...n} />
         ))}
       </div>
       <ChangeThemeButton />

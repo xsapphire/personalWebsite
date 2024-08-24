@@ -5,21 +5,29 @@ import { vars } from "./light.css";
 
 export const experienceCard = style([
   card,
-  sprinkles({ display: "flex" }),
   {
     minHeight: "290px",
+    display: "flex",
   },
 ]);
 
 export const tabButton = style([
   baseButton,
   sprinkles({
-    padding: "small",
-    display: "flex",
-    gap: "small",
-    alignItems: "center",
+    padding: {
+      mobile: "small",
+      tablet: "small",
+      desktop: "small",
+    },
+    gap: {
+      mobile: "small",
+      tablet: "small",
+      desktop: "small",
+    },
   }),
   {
+    display: "flex",
+    alignItems: "center",
     background: "transparent",
     color: vars.colors.font.h3,
     fontSize: "16px",
@@ -34,14 +42,18 @@ export const tabButton = style([
 
 export const experienceMenu = style([
   sprinkles({
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    padding: "medium",
+    padding: {
+      mobile: "medium",
+      tablet: "medium",
+      desktop: "medium",
+    },
   }),
   {
     borderRight: `1px solid ${vars.colors.background.body}`,
     position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
 ]);
 

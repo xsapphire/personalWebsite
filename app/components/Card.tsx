@@ -1,9 +1,6 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { sprinkles } from "../styles/sprinkles.css";
 import { card, cardTitle } from "../styles/styles.css";
-import { ThemedIcon } from "./ThemedIcon";
-import { faDiamond } from "@fortawesome/free-solid-svg-icons";
-import { vars } from "../styles/light.css";
 
 export const Card = ({
   title,
@@ -13,11 +10,33 @@ export const Card = ({
   children: ReactNode;
 }) => {
   return (
-    <div class={card}>
-      <div class={sprinkles({ padding: "medium" })}>
-        {typeof title === "string" ? <h3 class={cardTitle}>{title}</h3> : title}
+    <div className={card}>
+      <div
+        className={sprinkles({
+          padding: {
+            mobile: "medium",
+            tablet: "medium",
+            desktop: "medium",
+          },
+        })}
+      >
+        {typeof title === "string" ? (
+          <h3 className={cardTitle}>{title}</h3>
+        ) : (
+          title
+        )}
       </div>
-      <div class={sprinkles({ padding: "medium" })}>{children}</div>
+      <div
+        className={sprinkles({
+          padding: {
+            mobile: "medium",
+            tablet: "medium",
+            desktop: "medium",
+          },
+        })}
+      >
+        {children}
+      </div>
     </div>
   );
 };

@@ -1,6 +1,4 @@
 import { NavLink } from "@remix-run/react";
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { sidebarItem } from "../../styles/styles.css";
 import { SidebarItemType } from "./sidebar";
 import { sprinkles } from "../../styles/sprinkles.css";
@@ -19,9 +17,34 @@ export const SidebarItem = ({ icon, route, title }: SidebarItemType) => {
         };
       }}
     >
-      <div class={sidebarItem}>
-        <ThemedIcon faIcon={icon} />
-        {title}
+      <div className={sidebarItem}>
+        <ThemedIcon
+          faIcon={icon}
+          className={sprinkles({
+            width: {
+              mobile: "large",
+              tablet: "large",
+              desktop: "regular",
+            },
+            height: {
+              mobile: "large",
+              tablet: "large",
+              desktop: "regular",
+            },
+          })}
+        />
+        <p
+          className={sprinkles({
+            display: {
+              mobile: "none",
+              tablet: "none",
+              desktop: "inline",
+            },
+          })}
+          style={{ margin: 0 }}
+        >
+          {title}
+        </p>
       </div>
     </NavLink>
   );

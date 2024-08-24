@@ -1,19 +1,18 @@
 import { PageHeader } from "../components/pageHeader";
 import { mainContent } from "../styles/styles.css";
 import { Card } from "../components/Card";
-import { sprinkles } from "../styles/sprinkles.css";
 
 export default function About() {
   return (
     <div className={mainContent}>
       <PageHeader title="About" />
       <div
-        className={sprinkles({
+        style={{
           marginTop: "medium",
           display: "flex",
           flexDirection: "column",
-          gap: "medium",
-        })}
+          gap: "16px",
+        }}
       >
         <Card title="How Did I Enter CS?">
           I have a life goal of making some valuable change on the society, and

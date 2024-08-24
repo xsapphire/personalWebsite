@@ -13,23 +13,55 @@ export const bodyContainer = style([
     color: vars.colors.font.body,
   },
   sprinkles({
-    display: "grid",
+    display: {
+      mobile: "flex",
+      tablet: "flex",
+      desktop: "grid",
+    },
   }),
 ]);
 
 export const sidebarContainer = style([
   sprinkles({
-    padding: "large",
-    borderRadius: "sidebar",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "column",
+    padding: {
+      mobile: "medium",
+      tablet: "medium",
+      desktop: "large",
+    },
+    borderRadius: {
+      mobile: "sidebar",
+      tablet: "sidebar",
+      desktop: "sidebar",
+    },
+    display: {
+      mobile: "flex",
+      tablet: "flex",
+      desktop: "flex",
+    },
+    justifyContent: {
+      mobile: "space-between",
+      tablet: "space-between",
+      desktop: "space-between",
+    },
+    alignItems: {
+      mobile: "center",
+      tablet: "center",
+      desktop: "center",
+    },
+    flexDirection: {
+      mobile: "column",
+      tablet: "column",
+      desktop: "column",
+    },
+    height: {
+      mobile: "portableFull",
+      tablet: "portableFull",
+      desktop: "desktopFull",
+    },
   }),
   {
     background: vars.colors.brand,
     gridArea: "sidebar",
-    height: "calc(100vh - 48px)",
   },
 ]);
 export const sidebarItem = style([
@@ -38,10 +70,10 @@ export const sidebarItem = style([
     display: "flex",
     gap: "medium",
     alignItems: "center",
-    color: "white",
     borderRadius: "rounded",
   }),
   {
+    color: "white",
     selectors: {
       "&:hover": {
         background: vars.colors.hover,
@@ -86,7 +118,11 @@ export const card = style([
     background: vars.colors.background.card,
   },
   sprinkles({
-    borderRadius: "card",
+    borderRadius: {
+      mobile: "card",
+      tablet: "card",
+      desktop: "card",
+    },
   }),
 ]);
 
@@ -95,15 +131,11 @@ export const cardTitle = style({
   margin: 0,
 });
 
-export const baseButton = style([
-  sprinkles({
-    background: "green-50",
-  }),
-  {
-    border: "none",
-    cursor: "pointer",
-  },
-]);
+export const baseButton = style({
+  background: vars.colors.background.button,
+  border: "none",
+  cursor: "pointer",
+});
 
 export const tabContainer = style([
   sprinkles({
@@ -119,13 +151,13 @@ export const tabContainer = style([
 export const modeButton = style([
   baseButton,
   sprinkles({
-    color: "green-500",
     padding: "small",
     display: "flex",
     gap: "medium",
     borderRadius: "rounded",
   }),
   {
+    color: vars.colors.font.h1,
     selectors: {
       "&:hover": {
         boxShadow: `0 0 5px ${vars.colors.hover}`,

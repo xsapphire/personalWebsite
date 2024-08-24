@@ -16,6 +16,7 @@ const colors = {
   background: {
     body: "#111411",
     card: baseColors.neutral["gray-800"],
+    button: baseColors.green["green-50"],
   },
 };
 

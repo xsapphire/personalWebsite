@@ -36,11 +36,22 @@ const DevotionCard = ({
   return (
     <Card
       title={
-        <div className={sprinkles({ position: "relative" })}>
+        <div style={{ position: "relative" }}>
           <div className={cardHeaderIcon}>
             <ThemedIcon
               faIcon={faIcon}
-              size="50px"
+              className={sprinkles({
+                width: {
+                  mobile: "large",
+                  tablet: "large",
+                  desktop: "regular",
+                },
+                height: {
+                  mobile: "large",
+                  tablet: "large",
+                  desktop: "regular",
+                },
+              })}
               color={vars.colors.font.h1}
             />
           </div>
@@ -112,10 +123,21 @@ export default function Index() {
       <p className={introduction}>I devote to ...</p>
 
       <div
+        className={sprinkles({
+          display: {
+            mobile: "flex",
+            tablet: "flex",
+            desktop: "grid",
+          },
+          gap: {
+            mobile: "medium",
+            tablet: "medium",
+            desktop: "medium",
+          },
+        })}
         style={{
-          display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "24px",
+          flexDirection: "column",
           margin: "40px 0",
         }}
       >
@@ -159,6 +181,10 @@ export default function Index() {
           flexDirection: "column",
           display: "flex",
           gap: "small",
+          paddingBottom: {
+            mobile: "large",
+            tablet: "large",
+          },
         })}
       >
         <ReadMoreLink

@@ -48,7 +48,7 @@ export default function Code() {
         Typescript. It is built with Remix and Vanilla Extract CSS. You can view
         the code in my{" "}
         <NavLink
-          to="https://github.com/xsapphire/personalWebsite"
+          to="https://github.com/xsapphire/personalWebsite/tree/master"
           className={link}
         >
           Github Repo
@@ -60,10 +60,21 @@ export default function Code() {
       </p>
 
       <div
+        className={sprinkles({
+          display: {
+            mobile: "flex",
+            tablet: "flex",
+            desktop: "grid",
+          },
+          gap: {
+            mobile: "medium",
+            tablet: "medium",
+            desktop: "medium",
+          },
+        })}
         style={{
-          display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "24px",
+          flexDirection: "column",
           margin: "40px 0",
         }}
       >
@@ -72,11 +83,22 @@ export default function Code() {
             <Card
               key={l.name}
               title={
-                <div className={sprinkles({ position: "relative" })}>
+                <div style={{ position: "relative" }}>
                   <div className={cardHeaderIcon}>
                     <ThemedIcon
                       faIcon={l.faIcon}
-                      size="50px"
+                      className={sprinkles({
+                        width: {
+                          mobile: "large",
+                          tablet: "large",
+                          desktop: "large",
+                        },
+                        height: {
+                          mobile: "large",
+                          tablet: "large",
+                          desktop: "large",
+                        },
+                      })}
                       color={vars.colors.font.h1}
                     />
                   </div>

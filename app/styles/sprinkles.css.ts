@@ -5,17 +5,18 @@ const space = {
   small: "8px",
   medium: "16px",
   large: "24px",
-  // etc.
+  exLarge: "48px",
 };
 
-const width = {
-  sidebar: "200px",
-  icon: "16px",
+const iconDimension = {
+  small: "8px",
+  regular: "16px",
+  large: "32px",
 };
 
 const height = {
-  full: "100vh",
-  icon: "16px",
+  portableFull: "calc(100vh - 32px)",
+  desktopFull: "calc(100vh - 48px)",
 };
 
 const radius = {
@@ -51,6 +52,9 @@ const responsiveProperties = defineProperties({
     paddingRight: space,
     marginTop: space,
     marginBottom: space,
+    width: iconDimension,
+    height: { ...height, ...iconDimension },
+    borderRadius: radius,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
@@ -60,33 +64,4 @@ const responsiveProperties = defineProperties({
   },
 });
 
-const colors = {
-  "green-10": "#E6E8E6",
-  "green-50": "#9FB8AD",
-  "green-100": "#68815F",
-  "green-300": "#475841",
-  "green-500": "#394634",
-  "gray-100": "#CED0CE",
-  "gray-800": "#3F403F",
-  white: "#FFFFFF",
-};
-
-const colorProperties = defineProperties({
-  conditions: {
-    lightMode: {},
-    darkMode: { "@media": "(prefers-color-scheme: dark)" },
-  },
-  defaultCondition: "lightMode",
-  properties: {
-    color: colors,
-    background: colors,
-    width: width,
-    height: height,
-    borderRadius: radius,
-  },
-});
-
-export const sprinkles = createSprinkles(responsiveProperties, colorProperties);
-
-// It's a good idea to export the Sprinkles type too
-export type Sprinkles = Parameters<typeof sprinkles>[0];
+export const sprinkles = createSprinkles(responsiveProperties);

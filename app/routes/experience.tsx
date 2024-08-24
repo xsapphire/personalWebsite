@@ -34,17 +34,37 @@ export default function Experience() {
                 }}
                 style={{ fontWeight: i === activeIndex ? 800 : undefined }}
               >
-                <ThemedIcon faIcon={faCircle} size="8" />
+                <ThemedIcon
+                  faIcon={faCircle}
+                  className={sprinkles({
+                    width: {
+                      mobile: "small",
+                      tablet: "small",
+                      desktop: "small",
+                    },
+                    height: {
+                      mobile: "small",
+                      tablet: "small",
+                      desktop: "small",
+                    },
+                  })}
+                />
                 {d.title}
               </button>
             );
           })}
         </div>
         <div
-          className={sprinkles({
-            padding: "medium",
+          style={{
             display: "flex",
             alignItems: "center",
+          }}
+          className={sprinkles({
+            padding: {
+              mobile: "medium",
+              tablet: "medium",
+              desktop: "medium",
+            },
           })}
         >
           {experienceData.at(activeIndex)?.description}
