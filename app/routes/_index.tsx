@@ -4,10 +4,7 @@ import { ThemedIcon } from "../components/ThemedIcon";
 import {
   IconDefinition,
   faArrowRight,
-  faBookOpenReader,
   faLocationDot,
-  faMicrochip,
-  faRoute,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   cardHeaderIcon,
@@ -19,8 +16,9 @@ import {
 import { NavLink } from "@remix-run/react";
 import { sprinkles } from "../styles/sprinkles.css";
 import { Card } from "../components/Card";
-import { vars } from "../styles/light.css";
 import { link, mainContent, cardTitle } from "../styles/styles.css";
+import { devotionData } from "~/contents";
+import { themeColors } from "~/styles/theme.css";
 
 const DevotionCard = ({
   faIcon,
@@ -44,15 +42,15 @@ const DevotionCard = ({
                 width: {
                   mobile: "large",
                   tablet: "large",
-                  desktop: "regular",
+                  desktop: "large",
                 },
                 height: {
                   mobile: "large",
                   tablet: "large",
-                  desktop: "regular",
+                  desktop: "large",
                 },
               })}
-              color={vars.colors.font.h1}
+              color={themeColors.font.h1}
             />
           </div>
 
@@ -81,12 +79,24 @@ const ReadMoreLink = ({
   return (
     <div
       className={sprinkles({
-        display: "flex",
-        gap: "small",
-        alignItems: "center",
+        display: {
+          mobile: "flex",
+          tablet: "flex",
+          desktop: "flex",
+        },
+        gap: {
+          mobile: "small",
+          tablet: "small",
+          desktop: "medium",
+        },
+        alignItems: {
+          mobile: "center",
+          tablet: "center",
+          desktop: "center",
+        },
       })}
     >
-      <ThemedIcon faIcon={faArrowRight} color={vars.colors.font.link} />
+      <ThemedIcon faIcon={faArrowRight} color={themeColors.font.link} />
       <NavLink to={route} className={link}>
         {text}
       </NavLink>
@@ -110,7 +120,13 @@ export default function Index() {
       <p className={nameLabel}>Hi, I am Jinglin!</p>
       <div className={locationLabel}>
         <ThemedIcon faIcon={faLocationDot} />
-        Los Angeles
+        Los Angeles &#x2022; Open to Work &#x2022;{" "}
+        <NavLink
+          to="https://www.linkedin.com/in/jinglin-shan/"
+          className={link}
+        >
+          LinkedIn
+        </NavLink>
       </div>
 
       <p className={introduction}>
@@ -141,56 +157,38 @@ export default function Index() {
           margin: "40px 0",
         }}
       >
-        <DevotionCard
-          title="Write Readable Code"
-          description="
-            Code should not only produce expected results, but also 
-            be easy for other developers to read. I have practiced and 
-            emphasized on producing good quality code, including breaking 
-            down complex components, extracting out duplicate codes, 
-            writing detailed documentations, using descriptive variable
-            names and so on. 
-          "
-          faIcon={faBookOpenReader}
-        />
-        <DevotionCard
-          title="Make Reasonable Choice"
-          description="
-            Every choice we make shapes the outcome. The choice we make 
-            might not produce the best outcome, but I want to make sure 
-            that it is a reasonable one to make. We need to make decisions 
-            on problems like which library to use, which user interface design 
-            to adopt all through our career, and I learn reasons for each of them.
-          "
-          faIcon={faRoute}
-        />
-        <DevotionCard
-          title="Apply Recent Technology"
-          description="
-            We have been programming with high-level programming languages that 
-            are easier for us to read and write, and on top of that, people are 
-            constantly developing useful libraries that produces code with better 
-            readability, flexibility and client-side performance. I am in favor of
-            applying the latest greatest pick of tech to the product. 
-          "
-          faIcon={faMicrochip}
-        />
+        {devotionData.map((d) => {
+          return (
+            <DevotionCard
+              key={d.title}
+              title={d.title}
+              description={d.description}
+              faIcon={d.faIcon}
+            />
+          );
+        })}
       </div>
       <div
         className={sprinkles({
-          flexDirection: "column",
-          display: "flex",
-          gap: "small",
+          flexDirection: {
+            tablet: "column",
+            desktop: "column",
+          },
+          display: {
+            tablet: "flex",
+            desktop: "flex",
+          },
+          gap: {
+            mobile: "medium",
+            tablet: "medium",
+          },
           paddingBottom: {
             mobile: "large",
             tablet: "large",
           },
         })}
       >
-        <ReadMoreLink
-          route="experience"
-          text="Continue to read about my work experience"
-        />
+        <ReadMoreLink route="experience" text="Read about my work experience" />
         <ReadMoreLink
           route="code"
           text="See the libraries I have experience with"

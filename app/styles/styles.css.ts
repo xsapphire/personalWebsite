@@ -1,16 +1,17 @@
 import { style } from "@vanilla-extract/css";
 import { sprinkles } from "./sprinkles.css";
-import { vars } from "./light.css";
+import { themeColors } from "./theme.css";
+import { baseColors } from "./colors";
 
 export const bodyContainer = style([
   {
     gridTemplateAreas: '"sidebar mainContent"',
     gridTemplateColumns: "max-content auto",
     margin: 0,
-    background: vars.colors.background.body,
+    background: themeColors.background.body,
     fontFamily: "sans-serif",
     lineHeight: "24px",
-    color: vars.colors.font.body,
+    color: themeColors.font.body,
   },
   sprinkles({
     display: {
@@ -60,25 +61,42 @@ export const sidebarContainer = style([
     },
   }),
   {
-    background: vars.colors.brand,
+    background: themeColors.brand,
     gridArea: "sidebar",
   },
 ]);
+
 export const sidebarItem = style([
   sprinkles({
-    padding: "medium",
+    padding: {
+      mobile: "medium",
+      tablet: "medium",
+      desktop: "medium",
+    },
     display: "flex",
     gap: "medium",
     alignItems: "center",
-    borderRadius: "rounded",
+    borderRadius: {
+      mobile: "rounded",
+      tablet: "rounded",
+      desktop: "rounded",
+    },
   }),
   {
     color: "white",
     selectors: {
       "&:hover": {
-        background: vars.colors.hover,
+        background: themeColors.hover,
       },
     },
+  },
+]);
+
+export const activeSidebarItem = style([
+  sidebarItem,
+  {
+    background: themeColors.hover,
+    borderRadius: "999px",
   },
 ]);
 
@@ -100,7 +118,7 @@ export const mainContent = style({
 export const pageHeaderDecor = style({
   width: "8px",
   height: "30px",
-  background: vars.colors.font.h1,
+  background: themeColors.font.h1,
   transform: "skew(-20deg)",
 });
 
@@ -109,13 +127,13 @@ export const sectionHeading = style([
     paddingTop: "medium",
   }),
   {
-    color: vars.colors.font.h3,
+    color: themeColors.font.h3,
   },
 ]);
 
 export const card = style([
   {
-    background: vars.colors.background.card,
+    background: themeColors.background.card,
   },
   sprinkles({
     borderRadius: {
@@ -127,12 +145,12 @@ export const card = style([
 ]);
 
 export const cardTitle = style({
-  color: vars.colors.font.h1,
+  color: themeColors.font.h1,
   margin: 0,
 });
 
 export const baseButton = style({
-  background: vars.colors.background.button,
+  background: themeColors.background.button,
   border: "none",
   cursor: "pointer",
 });
@@ -151,16 +169,24 @@ export const tabContainer = style([
 export const modeButton = style([
   baseButton,
   sprinkles({
-    padding: "small",
+    padding: {
+      mobile: "medium",
+      tablet: "medium",
+      desktop: "small",
+    },
     display: "flex",
     gap: "medium",
-    borderRadius: "rounded",
+    borderRadius: {
+      mobile: "rounded",
+      tablet: "rounded",
+      desktop: "rounded",
+    },
   }),
   {
-    color: vars.colors.font.h1,
+    color: baseColors.green["green-700"],
     selectors: {
       "&:hover": {
-        boxShadow: `0 0 5px ${vars.colors.hover}`,
+        boxShadow: `0 0 5px ${themeColors.hover}`,
       },
     },
   },
@@ -168,10 +194,10 @@ export const modeButton = style([
 
 export const link = style({
   textDecoration: "none",
-  color: vars.colors.font.link,
+  color: themeColors.font.link,
   selectors: {
     "&:hover": {
-      color: vars.colors.font.linkHover,
+      color: themeColors.font.linkHover,
     },
   },
 });

@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
-import { vars } from "../styles/light.css";
 import { pageHeaderDecor } from "../styles/styles.css";
+import { themeColors } from "~/styles/theme.css";
 
 export const PageHeader = ({ title }: { title: string }): ReactElement => {
   return (
@@ -12,7 +12,7 @@ export const PageHeader = ({ title }: { title: string }): ReactElement => {
       }}
     >
       <div className={pageHeaderDecor} />
-      <h1 style={{ color: vars.colors.font.h1 }}>{title}</h1>
+      <h1 style={{ color: themeColors.font.h1 }}>{title}</h1>
     </div>
   );
 };

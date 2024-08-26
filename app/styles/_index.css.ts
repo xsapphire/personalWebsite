@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { vars } from "./light.css";
 import { sprinkles } from "./sprinkles.css";
+import { themeColors } from "./theme.css";
 
 export const nameLabel = style({
   fontSize: "50px",
@@ -10,22 +10,46 @@ export const nameLabel = style({
     "-webkit-linear-gradient(45deg, rgb(230 160 160) 0%, rgb(101 175 143) 42%, rgb(127 176 233) 100%)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
-  padding: "20px 0 10px 0",
+  marginBottom: "16px",
+});
+
+export const nameIcon = style({
+  width: 50,
+  height: 50,
+  padding: 18,
+  borderRadius: 10,
+  border: "5px solid white",
+  fontSize: 18,
+  color: "white",
+  display: "flex",
+  gap: "8px",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
 });
 
 export const locationLabel = style([
   {
-    color: vars.colors.font.subtitle,
+    color: themeColors.font.subtitle,
   },
   sprinkles({
-    display: "flex",
-    gap: "small",
-    alignItems: "center",
+    display: {
+      tablet: "flex",
+      desktop: "flex",
+    },
+    gap: {
+      tablet: "small",
+      desktop: "small",
+    },
+    alignItems: {
+      tablet: "center",
+      desktop: "center",
+    },
   }),
 ]);
 
 export const introduction = style({
-  color: vars.colors.font.subtitle,
+  color: themeColors.font.subtitle,
   fontSize: "20px",
   lineHeight: "24px",
 });

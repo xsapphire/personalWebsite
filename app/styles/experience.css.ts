@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { baseButton, card } from "./styles.css";
 import { sprinkles } from "./sprinkles.css";
-import { vars } from "./light.css";
+import { themeColors } from "./theme.css";
 
 export const experienceCard = style([
   card,
@@ -29,7 +29,7 @@ export const tabButton = style([
     display: "flex",
     alignItems: "center",
     background: "transparent",
-    color: vars.colors.font.h3,
+    color: themeColors.font.h3,
     fontSize: "16px",
     width: "max-content",
     selectors: {
@@ -49,7 +49,7 @@ export const experienceMenu = style([
     },
   }),
   {
-    borderRight: `1px solid ${vars.colors.background.body}`,
+    borderRight: `1px solid ${themeColors.background.body}`,
     position: "relative",
     display: "flex",
     flexDirection: "column",
@@ -60,7 +60,7 @@ export const experienceMenu = style([
 export const dotConnection = style({
   width: 1,
   height: "calc(100% - 72px)",
-  background: vars.colors.font.h3,
+  background: themeColors.font.h3,
   position: "absolute",
   left: "27.5px",
   top: "37px",

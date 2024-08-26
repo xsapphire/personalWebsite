@@ -12,6 +12,7 @@ const iconDimension = {
   small: "8px",
   regular: "16px",
   large: "32px",
+  exLarge: "48px",
 };
 
 const height = {

@@ -1,20 +1,17 @@
-import { ReactElement, useContext } from "react";
-import { modeButton, sidebarContainer } from "../../styles/styles.css";
+import { ReactElement } from "react";
+import { sidebarContainer } from "../../styles/styles.css";
 import {
   IconDefinition,
   faCode,
   faFile,
-  faMoon,
   faPenRuler,
-  faSun,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { SidebarItem } from "./sidebarItem";
 import { sprinkles } from "../../styles/sprinkles.css";
-import { ThemeContext } from "../../context/ThemeContext";
-import { ThemedIcon } from "../ThemedIcon";
-import NameLogo from "./NameLogo";
 import { NavLink } from "@remix-run/react";
+import { ChangeThemeButton } from "./ChangeThemeButton";
+import { Name } from "./Name";
 
 export type SidebarItemType = {
   icon: IconDefinition;
@@ -29,26 +26,11 @@ const navigation: SidebarItemType[] = [
   { icon: faPenRuler, route: "hobby", title: "Hobby" },
 ];
 
-const ChangeThemeButton = (): ReactElement => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  return (
-    <button
-      className={modeButton}
-      onClick={() => {
-        toggleTheme ? toggleTheme(theme === "light" ? "dark" : "light") : null;
-      }}
-    >
-      <ThemedIcon faIcon={theme === "light" ? faSun : faMoon} />
-      {theme === "light" ? <div>Light Mode</div> : <div>Dark Mode</div>}
-    </button>
-  );
-};
-
 export const Sidebar = (): ReactElement => {
   return (
     <div className={sidebarContainer}>
-      <NavLink to="">
-        <NameLogo width={80} height={80} fill="white" />
+      <NavLink style={{ textDecoration: "none" }} to="">
+        <Name />
       </NavLink>
 
       <div
@@ -74,6 +56,7 @@ export const Sidebar = (): ReactElement => {
           <SidebarItem key={n.title} {...n} />
         ))}
       </div>
+
       <ChangeThemeButton />
     </div>
   );

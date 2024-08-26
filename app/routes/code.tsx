@@ -5,39 +5,8 @@ import { sprinkles } from "../styles/sprinkles.css";
 import { Card } from "../components/Card";
 import { cardHeaderIcon, cardTitleEmphasize } from "../styles/_index.css";
 import { ThemedIcon } from "../components/ThemedIcon";
-import {
-  IconDefinition,
-  faLayerGroup,
-  faList,
-  faVialCircleCheck,
-} from "@fortawesome/free-solid-svg-icons";
-import { vars } from "../styles/light.css";
-
-const libraries: {
-  category: string;
-  name: string;
-  desc: string;
-  faIcon: IconDefinition;
-}[] = [
-  {
-    category: "API",
-    name: "Apollo GraphQL",
-    desc: "Apollo GraphQL is a modern API platform. It has many advantages over older API platforms which you can find on their website, but the reason I am very fond of GraphQL is how much boilerplate code it can reduce. With GraphQL I just query what I want with very little syntax that I need to follow. I helped set up the middle tier on the first year, and I have worked on the front-end side with GraphQL for over 4 years.",
-    faIcon: faLayerGroup,
-  },
-  {
-    category: "Testing",
-    name: "Playwright",
-    desc: "Because Square 8 was a small team, I had written quite a few tests for automate testing. We started with Cypress as testing tool, but as we were constantly improving our codebase, we the front-end team, refactored the testing files from Cypress to Playwright. We looked at the Playwright documents and played with it for a week, and we all prefer Playwright. I liked Playwright a lot because it has a much better readability and eaiser tracing. ",
-    faIcon: faVialCircleCheck,
-  },
-  {
-    category: "UI Component",
-    name: "react-hook-form",
-    desc: "I had experience with many react component libraries that helped the company build the management platform quicker and easier. We dealt with forms and tables for most of the time, and therefore I had extensive experience in react-hook-form. We picked react-hook-form because it is performant, flexible and extensible. We had been using their validation for about 2~3 years, but in the end we switched to zod schema as we have defined more custom types on our backend side.",
-    faIcon: faList,
-  },
-];
+import { codeData } from "~/contents";
+import { themeColors } from "~/styles/theme.css";
 
 export default function Code() {
   return (
@@ -78,40 +47,42 @@ export default function Code() {
           margin: "40px 0",
         }}
       >
-        {libraries.map((l) => {
+        {codeData.map((d) => {
           return (
             <Card
-              key={l.name}
+              key={d.title}
               title={
                 <div style={{ position: "relative" }}>
-                  <div className={cardHeaderIcon}>
-                    <ThemedIcon
-                      faIcon={l.faIcon}
-                      className={sprinkles({
-                        width: {
-                          mobile: "large",
-                          tablet: "large",
-                          desktop: "large",
-                        },
-                        height: {
-                          mobile: "large",
-                          tablet: "large",
-                          desktop: "large",
-                        },
-                      })}
-                      color={vars.colors.font.h1}
-                    />
-                  </div>
+                  {d.faIcon && (
+                    <div className={cardHeaderIcon}>
+                      <ThemedIcon
+                        faIcon={d.faIcon}
+                        className={sprinkles({
+                          width: {
+                            mobile: "large",
+                            tablet: "large",
+                            desktop: "large",
+                          },
+                          height: {
+                            mobile: "large",
+                            tablet: "large",
+                            desktop: "large",
+                          },
+                        })}
+                        color={themeColors.font.h1}
+                      />
+                    </div>
+                  )}
 
                   <h3 className={cardTitle} style={{ fontWeight: "400" }}>
-                    {l.category}
+                    {d.subtitle}
                     <br />
-                    <span className={cardTitleEmphasize}>{l.name}</span>
+                    <span className={cardTitleEmphasize}>{d.title}</span>
                   </h3>
                 </div>
               }
             >
-              {l.desc}
+              {d.description}
             </Card>
           );
         })}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { mainContent } from "../styles/styles.css";
 import { PageHeader } from "../components/pageHeader";
-import { experienceData } from "../content/experience";
+import { experienceData } from "../contents";
 import { sprinkles } from "../styles/sprinkles.css";
 import {
   dotConnection,

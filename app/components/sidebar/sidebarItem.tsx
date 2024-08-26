@@ -1,23 +1,24 @@
 import { NavLink } from "@remix-run/react";
-import { sidebarItem } from "../../styles/styles.css";
+import { activeSidebarItem, sidebarItem } from "../../styles/styles.css";
 import { SidebarItemType } from "./sidebar";
 import { sprinkles } from "../../styles/sprinkles.css";
 import { ThemedIcon } from "../ThemedIcon";
-import { vars } from "../../styles/light.css";
+import { useState } from "react";
 
 export const SidebarItem = ({ icon, route, title }: SidebarItemType) => {
+  const [itemIsActive, setItemIsActive] = useState<boolean>(false);
+
   return (
     <NavLink
       to={route}
       style={({ isActive }) => {
+        setItemIsActive(isActive);
         return {
-          background: isActive ? vars.colors.hover : "transparent",
-          borderRadius: "999px",
           textDecoration: "none",
         };
       }}
     >
-      <div className={sidebarItem}>
+      <div className={itemIsActive ? activeSidebarItem : sidebarItem}>
         <ThemedIcon
           faIcon={icon}
           className={sprinkles({
