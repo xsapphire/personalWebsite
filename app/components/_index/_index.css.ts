@@ -1,10 +1,9 @@
 import { style } from "@vanilla-extract/css";
 import { themeColors } from "../../styles/theme.css";
-import { boxWithIcon } from "~/styles/base.css";
 import { sprinkles } from "~/styles/sprinkles.css";
 
 export const nameLabel = style({
-  fontSize: "50px",
+  fontSize: "3em",
   lineHeight: "60px",
   fontWeight: "800",
   background:
@@ -15,13 +14,21 @@ export const nameLabel = style({
 });
 
 export const statusLine = style([
-  boxWithIcon,
   {
+    display: "flex",
     color: themeColors.font.subtitle,
   },
   sprinkles({
+    flexDirection: {
+      portable: "column",
+      desktop: "row",
+    },
+    gap: {
+      portable: "small",
+      desktop: "medium",
+    },
     marginBottom: {
-      portable: "large",
+      portable: "exLarge",
       desktop: "exLarge",
     },
   }),
@@ -29,6 +36,5 @@ export const statusLine = style([
 
 export const introduction = style({
   color: themeColors.font.subtitle,
-  fontSize: "20px",
-  lineHeight: "24px",
+  fontSize: "1.2em",
 });

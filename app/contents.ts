@@ -1,7 +1,7 @@
 import {
   faBookOpenReader,
   faCode,
-  faFile,
+  faFileLines,
   faLayerGroup,
   faList,
   faMicrochip,
@@ -15,7 +15,7 @@ import { SidebarItemType } from "./components/sidebar/SidebarItem";
 
 export const navigation: SidebarItemType[] = [
   { icon: faUser, route: "about", title: "Who am I" },
-  { icon: faFile, route: "experience", title: "Work Experience" },
+  { icon: faFileLines, route: "experience", title: "Work Experience" },
   { icon: faCode, route: "code", title: "Code" },
   { icon: faPenRuler, route: "hobby", title: "Hobby" },
 ];

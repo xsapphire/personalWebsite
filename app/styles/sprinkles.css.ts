@@ -1,4 +1,5 @@
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
+import { themeColors } from "./theme.css";
 
 const space = {
   none: 0,
@@ -24,6 +25,10 @@ const radius = {
   sidebar: "0 30px 30px 0",
   rounded: "999px",
   card: "8px",
+};
+
+const border = {
+  bgColor: `1px solid ${themeColors.background.body}`,
 };
 
 const nonResponsiveProperties = defineProperties({
@@ -59,6 +64,8 @@ const responsiveProperties = defineProperties({
     marginBottom: space,
     width: iconDimension,
     height: { ...height, ...iconDimension },
+    borderRight: border,
+    borderBottom: border,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],

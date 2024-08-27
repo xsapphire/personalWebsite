@@ -2,6 +2,7 @@ import { Links, Outlet, Scripts } from "@remix-run/react";
 import { ThemeProvider } from "./ThemeProvider";
 import {
   bodyContainer,
+  contentWrapper,
   mainContent,
   mainContentContainer,
 } from "./styles/layout.css";
@@ -21,7 +22,9 @@ export default function App() {
           <Sidebar />
           <div className={mainContentContainer}>
             <div className={mainContent}>
-              <Outlet />
+              <div className={contentWrapper}>
+                <Outlet />
+              </div>
             </div>
           </div>
 

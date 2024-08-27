@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { card } from "~/components/card/card.css";
-import { baseButton, boxWithIcon } from "~/styles/base.css";
+import { baseButton, box, boxWithIcon } from "~/styles/base.css";
 import { sprinkles } from "~/styles/sprinkles.css";
 import { themeColors } from "~/styles/theme.css";
 
@@ -48,17 +48,24 @@ export const activeTabButton = style([
 ]);
 
 export const experienceMenu = style([
+  box,
   sprinkles({
     padding: {
       portable: "medium",
       desktop: "medium",
     },
+    gap: {
+      portable: "medium",
+    },
+    borderRight: {
+      desktop: "bgColor",
+    },
+    borderBottom: {
+      portable: "bgColor",
+    },
   }),
   {
-    borderRight: `1px solid ${themeColors.background.body}`,
     position: "relative",
-    display: "flex",
-    flexDirection: "column",
     justifyContent: "space-between",
   },
 ]);

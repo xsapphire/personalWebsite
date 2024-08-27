@@ -48,7 +48,7 @@ export const mainContentContainer = style([
   flexJustifyCenter,
   sprinkles({
     padding: {
-      portable: "large",
+      portable: "medium",
       desktop: "large",
     },
     height: {
@@ -65,4 +65,10 @@ export const mainContentContainer = style([
 export const mainContent = style({
   maxWidth: "1024px",
   maxHeight: "100vh",
+});
+
+export const contentWrapper = sprinkles({
+  paddingY: {
+    portable: "large",
+  },
 });

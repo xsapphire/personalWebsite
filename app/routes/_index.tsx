@@ -18,7 +18,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <>
+    <div style={{ marginBottom: "16px" }}>
       <p className={nameLabel}>Hi, I am Jinglin!</p>
 
       <Status />
@@ -44,6 +44,6 @@ export default function Index() {
           text="See the libraries I have experience with"
         />
       </div>
-    </>
+    </div>
   );
 }

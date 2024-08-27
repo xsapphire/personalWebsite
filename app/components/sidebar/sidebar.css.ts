@@ -1,5 +1,11 @@
 import { style } from "@vanilla-extract/css";
-import { baseButton, box, boxWithIcon } from "~/styles/base.css";
+import {
+  baseButton,
+  box,
+  boxWithIcon,
+  flexAlignCenter,
+  flexJustifyCenter,
+} from "~/styles/base.css";
 import { baseColors } from "~/styles/colors";
 import { sprinkles } from "~/styles/sprinkles.css";
 import { themeColors } from "~/styles/theme.css";
@@ -8,7 +14,7 @@ export const sidebarMenu = style([
   box,
   sprinkles({
     gap: {
-      portable: "exLarge",
+      portable: "large",
       desktop: "small",
     },
   }),
@@ -40,20 +46,24 @@ export const activeSidebarItem = style([
   },
 ]);
 
-export const nameIcon = style({
-  width: 50,
-  height: 50,
-  padding: 18,
-  borderRadius: 10,
-  border: "5px solid white",
-  fontSize: 18,
-  color: "white",
-  display: "flex",
-  gap: "8px",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-});
+export const nameIcon = style([
+  box,
+  flexAlignCenter,
+  flexJustifyCenter,
+  {
+    width: 40,
+    height: 40,
+    border: "5px solid white",
+    color: "white",
+  },
+  sprinkles({
+    padding: {
+      portable: "small",
+      desktop: "medium",
+    },
+    borderRadius: "card",
+  }),
+]);
 
 export const modeButton = style([
   baseButton,
