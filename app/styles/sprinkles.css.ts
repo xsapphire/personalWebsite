@@ -26,18 +26,9 @@ const radius = {
   card: "8px",
 };
 
-const responsiveProperties = defineProperties({
-  conditions: {
-    mobile: {},
-    tablet: { "@media": "screen and (min-width: 768px)" },
-    desktop: { "@media": "screen and (min-width: 1024px)" },
-  },
-  defaultCondition: "desktop",
+const nonResponsiveProperties = defineProperties({
   properties: {
-    display: ["none", "grid", "flex", "block", "inline"],
-    position: ["relative", "absolute"],
-    gap: space,
-    flexDirection: ["row", "column"],
+    borderRadius: radius,
     justifyContent: [
       "stretch",
       "flex-start",
@@ -47,6 +38,19 @@ const responsiveProperties = defineProperties({
       "space-between",
     ],
     alignItems: ["stretch", "flex-start", "center", "flex-end"],
+  },
+});
+
+const responsiveProperties = defineProperties({
+  conditions: {
+    portable: { "@media": "screen and (max-width: 1024px)" },
+    desktop: { "@media": "screen and (min-width: 1024px)" },
+  },
+  defaultCondition: "desktop",
+  properties: {
+    display: ["none", "grid", "flex", "block", "inline"],
+    gap: space,
+    flexDirection: ["row", "column"],
     paddingTop: space,
     paddingBottom: space,
     paddingLeft: space,
@@ -55,14 +59,15 @@ const responsiveProperties = defineProperties({
     marginBottom: space,
     width: iconDimension,
     height: { ...height, ...iconDimension },
-    borderRadius: radius,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
     paddingX: ["paddingLeft", "paddingRight"],
     paddingY: ["paddingTop", "paddingBottom"],
-    placeItems: ["justifyContent", "alignItems"],
   },
 });
 
-export const sprinkles = createSprinkles(responsiveProperties);
+export const sprinkles = createSprinkles(
+  nonResponsiveProperties,
+  responsiveProperties
+);

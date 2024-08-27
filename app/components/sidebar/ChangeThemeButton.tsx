@@ -1,10 +1,10 @@
 import { ReactElement, useContext } from "react";
-import { modeButton } from "../../styles/styles.css";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { sprinkles } from "../../styles/sprinkles.css";
 import { ThemeContext } from "../../context/ThemeContext";
 import { ThemedIcon } from "../ThemedIcon";
 import { themeTypes } from "../../ThemeProvider";
+import { modeButton } from "./sidebar.css";
 
 const CapFirstLetter = (str: string) => {
   return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
@@ -23,13 +23,11 @@ export const ChangeThemeButton = (): ReactElement => {
       <ThemedIcon
         className={sprinkles({
           width: {
-            mobile: "large",
-            tablet: "large",
+            portable: "large",
             desktop: "regular",
           },
           height: {
-            mobile: "large",
-            tablet: "large",
+            portable: "large",
             desktop: "regular",
           },
         })}
@@ -38,8 +36,7 @@ export const ChangeThemeButton = (): ReactElement => {
       <div
         className={sprinkles({
           display: {
-            mobile: "none",
-            tablet: "none",
+            portable: "none",
             desktop: "block",
           },
         })}

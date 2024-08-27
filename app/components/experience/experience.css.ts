@@ -1,7 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { baseButton, card } from "./styles.css";
-import { sprinkles } from "./sprinkles.css";
-import { themeColors } from "./theme.css";
+import { card } from "~/components/card/card.css";
+import { baseButton, boxWithIcon } from "~/styles/base.css";
+import { sprinkles } from "~/styles/sprinkles.css";
+import { themeColors } from "~/styles/theme.css";
 
 export const experienceCard = style([
   card,
@@ -9,42 +10,47 @@ export const experienceCard = style([
     minHeight: "290px",
     display: "flex",
   },
+  sprinkles({
+    flexDirection: {
+      portable: "column",
+      desktop: "row",
+    },
+  }),
 ]);
 
 export const tabButton = style([
   baseButton,
+  boxWithIcon,
   sprinkles({
     padding: {
-      mobile: "small",
-      tablet: "small",
-      desktop: "small",
-    },
-    gap: {
-      mobile: "small",
-      tablet: "small",
+      portable: "small",
       desktop: "small",
     },
   }),
   {
-    display: "flex",
-    alignItems: "center",
     background: "transparent",
     color: themeColors.font.h3,
     fontSize: "16px",
     width: "max-content",
     selectors: {
       "&:hover": {
-        fontWeight: "600",
+        color: themeColors.font.linkHover,
       },
     },
+  },
+]);
+
+export const activeTabButton = style([
+  tabButton,
+  {
+    color: themeColors.font.link,
   },
 ]);
 
 export const experienceMenu = style([
   sprinkles({
     padding: {
-      mobile: "medium",
-      tablet: "medium",
+      portable: "medium",
       desktop: "medium",
     },
   }),

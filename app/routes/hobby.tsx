@@ -1,9 +1,8 @@
-import { PageHeader } from "../components/pageHeader";
-import { mainContent } from "../styles/styles.css";
+import { PageHeader } from "../components/PageHeader";
 
 export default function Hobby() {
   return (
-    <div className={mainContent}>
+    <>
       <PageHeader title="Hobby" />
       <p>
         Like many people, I like drawing and playing games. In addition, I added
@@ -20,6 +19,6 @@ export default function Hobby() {
         UI. I am now mainly working on the Arknights Wiki. In 2023 I won the
         second prize in the annual Biliwiki contributors award.
       </p>
-    </div>
+    </>
   );
 }

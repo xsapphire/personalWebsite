@@ -1,12 +1,24 @@
 import {
   faBookOpenReader,
+  faCode,
+  faFile,
   faLayerGroup,
   faList,
   faMicrochip,
+  faPenRuler,
   faRoute,
+  faUser,
   faVialCircleCheck,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
+import { SidebarItemType } from "./components/sidebar/SidebarItem";
+
+export const navigation: SidebarItemType[] = [
+  { icon: faUser, route: "about", title: "Who am I" },
+  { icon: faFile, route: "experience", title: "Work Experience" },
+  { icon: faCode, route: "code", title: "Code" },
+  { icon: faPenRuler, route: "hobby", title: "Hobby" },
+];
 
 /**
  * @param {string} title The title displayed on the card
@@ -77,9 +89,14 @@ export const experienceData: CardDataType[] = [
       "The founder's vision started with a mobile app that facilitates drivers to communicate with their trucking management companies, and thus I started with drafting a flow chart and a set of mobile screen designs. As we talked to the operators from the parent logistics companies, we realized how old and stale their software platform is, and how hard it is to integrate mobile app data with the plaform. We were ambitious and decided to make a full container management platform alongside with the mobile app. Out target users groups were then extended to brokers, trucking management companies, drivers, and customers that give loads. I have collected needs from each of the user groups, drafted designs for the mobile app, operator web portal, and customer web portal, and regularly held meetings to get feedback from users.",
   },
   {
-    title: "Setup Web and Mobile App",
+    title: "Setup Web App",
     description:
-      "Because I had a preference on product design and front-end development, we found a senior backend engineer to start the project together. I worked closely with him to design workflow and database schema, and we picked Apollo GraphQL for implementing API. When we were in the process of recruiting, I wrote some of the resolvers on the middle tier with Golang, but soon I got my feet off from this ground and jumped into mobile app development. I started with programming a useable Android app with Kotlin which went through a field test with a driver from the parent trucking management company. Later we decided to make a lite version so that it can be put in use faster, and therefore we designed a second version of mobile app with fewer but essential functions, and I developed an iOS app with SwiftUI. The product manager introduced some contractor who had experience in iOS app development to help me with any problems I had. The mobile app was mostly done after some time, but the web management platform was far from complete. I moved to the web application team to help with the plaform and I decided to stay there. 2~3 years later the Android mobile app got picked up by a full-stack engineer before we were about to launch the plaform.",
+      "Because I had a preference on product design and front-end development, we found a senior backend engineer to start the project together. I worked closely with him to design workflow and database schema, and we picked Apollo GraphQL for implementing API. When we were in the process of recruiting, I wrote some of the resolvers on the middle tier with Golang, but soon I got my feet off from this ground and jumped into mobile app development.",
+  },
+  {
+    title: "Setup Mobile App",
+    description:
+      "I started with programming a useable Android app with Kotlin which went through a field test with a driver from the parent trucking management company. Later we decided to make a lite version so that it can be put in use faster, and therefore we designed a second version of mobile app with fewer but essential functions, and I developed an iOS app with SwiftUI. The product manager introduced some contractor who had experience in iOS app development to help me with any problems I had. The mobile app was mostly done after some time, but the web management platform was far from complete. I moved to the web application team to help with the plaform and I decided to stay there. 2~3 years later the Android mobile app got picked up by a full-stack engineer before we were about to launch the plaform.",
   },
   {
     title: "Professionality in Web",

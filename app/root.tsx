@@ -1,14 +1,18 @@
-import { Links, Meta, Outlet, Scripts } from "@remix-run/react";
+import { Links, Outlet, Scripts } from "@remix-run/react";
 import { ThemeProvider } from "./ThemeProvider";
-import { Sidebar } from "./components/sidebar/sidebar";
-import { bodyContainer, mainContentContainer } from "./styles/styles.css";
+import {
+  bodyContainer,
+  mainContent,
+  mainContentContainer,
+} from "./styles/layout.css";
+import { Sidebar } from "./components/sidebar/Sidebar";
 
 export default function App() {
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="data:image/x-icon;base64,AA" />
-        <Meta />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Links />
       </head>
 
@@ -16,7 +20,9 @@ export default function App() {
         <body className={bodyContainer}>
           <Sidebar />
           <div className={mainContentContainer}>
-            <Outlet />
+            <div className={mainContent}>
+              <Outlet />
+            </div>
           </div>
 
           <Scripts />

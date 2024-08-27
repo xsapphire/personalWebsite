@@ -1,20 +1,14 @@
-import { PageHeader } from "../components/pageHeader";
-import { mainContent } from "../styles/styles.css";
-import { Card } from "../components/Card";
-import { aboutData } from "~/contents";
+import { PageHeader } from "../components/PageHeader";
+import { Card } from "../components/card/Card";
+import { aboutData } from "../contents";
+import { boxList } from "~/styles/base.css";
 
 export default function About() {
   return (
-    <div className={mainContent}>
+    <>
       <PageHeader title="About" />
-      <div
-        style={{
-          marginTop: "medium",
-          display: "flex",
-          flexDirection: "column",
-          gap: "16px",
-        }}
-      >
+
+      <div className={boxList}>
         {aboutData.map((d) => {
           return (
             <Card key={d.title} title={d.title}>
@@ -23,6 +17,6 @@ export default function About() {
           );
         })}
       </div>
-    </div>
+    </>
   );
 }

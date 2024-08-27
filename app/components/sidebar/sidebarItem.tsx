@@ -1,9 +1,16 @@
 import { NavLink } from "@remix-run/react";
-import { activeSidebarItem, sidebarItem } from "../../styles/styles.css";
-import { SidebarItemType } from "./sidebar";
 import { sprinkles } from "../../styles/sprinkles.css";
 import { ThemedIcon } from "../ThemedIcon";
 import { useState } from "react";
+import { activeSidebarItem, sidebarItem } from "./sidebar.css";
+import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { desktopVisibleText } from "~/styles/base.css";
+
+export type SidebarItemType = {
+  icon: IconDefinition;
+  route: string;
+  title: string;
+};
 
 export const SidebarItem = ({ icon, route, title }: SidebarItemType) => {
   const [itemIsActive, setItemIsActive] = useState<boolean>(false);
@@ -23,29 +30,17 @@ export const SidebarItem = ({ icon, route, title }: SidebarItemType) => {
           faIcon={icon}
           className={sprinkles({
             width: {
-              mobile: "large",
-              tablet: "large",
+              portable: "large",
               desktop: "regular",
             },
             height: {
-              mobile: "large",
-              tablet: "large",
+              portable: "large",
               desktop: "regular",
             },
           })}
         />
-        <p
-          className={sprinkles({
-            display: {
-              mobile: "none",
-              tablet: "none",
-              desktop: "inline",
-            },
-          })}
-          style={{ margin: 0 }}
-        >
-          {title}
-        </p>
+
+        <p className={desktopVisibleText}>{title}</p>
       </div>
     </NavLink>
   );

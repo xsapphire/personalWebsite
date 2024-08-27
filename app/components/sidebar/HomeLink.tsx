@@ -1,26 +1,25 @@
-import { nameIcon } from "~/styles/_index.css";
 import { ThemedIcon } from "../ThemedIcon";
 import { faHouseChimney } from "@fortawesome/free-solid-svg-icons";
 import { sprinkles } from "~/styles/sprinkles.css";
+import { NavLink } from "@remix-run/react";
+import { nameIcon } from "./sidebar.css";
 
-export const Name = () => {
+export const HomeLink = () => {
   return (
-    <div className={nameIcon}>
+    <NavLink className={nameIcon} to="">
       <ThemedIcon
         faIcon={faHouseChimney}
         className={sprinkles({
           width: {
-            mobile: "exLarge",
-            tablet: "exLarge",
+            portable: "exLarge",
             desktop: "exLarge",
           },
           height: {
-            mobile: "exLarge",
-            tablet: "exLarge",
+            portable: "exLarge",
             desktop: "exLarge",
           },
         })}
       />
-    </div>
+    </NavLink>
   );
 };
