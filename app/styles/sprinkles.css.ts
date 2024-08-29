@@ -35,8 +35,15 @@ const border = {
   bgColor: `1px solid ${themeColors.background.body}`,
 };
 
+const zIndex = {
+  back: -1,
+  base: 0,
+  front: 1,
+};
+
 const nonResponsiveProperties = defineProperties({
   properties: {
+    zIndex: zIndex,
     justifyContent: [
       "stretch",
       "flex-start",

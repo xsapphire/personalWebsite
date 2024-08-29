@@ -40,6 +40,7 @@ export const RoadMap = ({
                   portable: "small",
                   desktop: "small",
                 },
+                zIndex: "front",
               })}
             />
             {d.title}

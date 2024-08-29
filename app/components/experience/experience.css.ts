@@ -34,7 +34,7 @@ export const tabButton = style([
     width: "max-content",
     selectors: {
       "&:hover": {
-        color: themeColors.font.linkHover,
+        color: themeColors.font.link,
       },
     },
   },
