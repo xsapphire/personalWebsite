@@ -1,4 +1,19 @@
+import { MetaFunction } from "@remix-run/react";
 import { PageHeader } from "../components/PageHeader";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Jinglin Shan | Hobby" },
+    {
+      name: "description",
+      content: "Hobbies for my leisure time. ",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
+  ];
+};
 
 export default function Hobby() {
   return (

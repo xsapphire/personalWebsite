@@ -13,6 +13,21 @@ import {
 } from "~/components/card/card.css";
 import { link } from "~/styles/base.css";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { MetaFunction } from "@remix-run/cloudflare";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Jinglin Shan | Code" },
+    {
+      name: "description",
+      content: "My coding skills. ",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
+  ];
+};
 
 const CodeCardTitle = ({
   title,

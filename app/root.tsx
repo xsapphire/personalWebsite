@@ -7,21 +7,6 @@ import {
   mainContentContainer,
 } from "./styles/layout.css";
 import { Sidebar } from "./components/sidebar/Sidebar";
-import { MetaFunction } from "@remix-run/cloudflare";
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Jinglin Shan" },
-    {
-      name: "description",
-      content: "Welcome to Jinglin Shan's personal website",
-    },
-    {
-      name: "viewport",
-      content: "width=device-width, initial-scale=1",
-    },
-  ];
-};
 
 export default function App() {
   return (

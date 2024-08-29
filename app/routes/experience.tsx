@@ -4,6 +4,21 @@ import { experienceData } from "../contents";
 import { sprinkles } from "../styles/sprinkles.css";
 import { experienceCard } from "~/components/experience/experience.css";
 import { RoadMap } from "~/components/experience/RoadMap";
+import { MetaFunction } from "@remix-run/react";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Jinglin Shan | Experience" },
+    {
+      name: "description",
+      content: "My work experience in the past five years. ",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
+  ];
+};
 
 export default function Experience() {
   const [activeIndex, setActiveIndex] = useState(0);

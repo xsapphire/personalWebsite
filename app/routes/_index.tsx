@@ -4,6 +4,21 @@ import { DevotionCard } from "~/components/card/DevotionCard";
 import { CardHolder } from "~/components/card/CardHolder";
 import { nameLabel } from "~/components/_index/_index.css";
 import { Introduction, Status, ReadMoreLink } from "~/components/_index";
+import { MetaFunction } from "@remix-run/react";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Jinglin Shan" },
+    {
+      name: "description",
+      content: "Welcome to Jinglin Shan's personal website.",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
+  ];
+};
 
 export default function Index() {
   return (

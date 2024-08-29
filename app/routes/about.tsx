@@ -3,6 +3,21 @@ import { PageHeader } from "../components/PageHeader";
 import { Card } from "../components/card/Card";
 import { aboutData } from "../contents";
 import { boxList } from "~/styles/base.css";
+import { MetaFunction } from "@remix-run/react";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Jinglin Shan | About" },
+    {
+      name: "description",
+      content: "My past, present, and future. ",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
+  ];
+};
 
 export default function About() {
   return (
