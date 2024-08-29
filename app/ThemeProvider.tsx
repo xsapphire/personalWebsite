@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import { ThemeContext } from "./context/ThemeContext";
 import { lightTheme, darkTheme } from "./styles/theme.css";
 
@@ -20,16 +20,26 @@ const revertThemeType = (prevTheme: ThemeType) => {
 
 export function ThemeProvider({
   children,
-}: React.PropsWithChildren<ThemeProviderProps>) {
+}: PropsWithChildren<ThemeProviderProps>) {
   const [selectedTheme, setSelectedTheme] = useState<ThemeType>(
     themeTypes.light
   );
 
   // Fetch theme preference from localStorage if there is any
   useEffect(() => {
+    // Saved theme preference takes priority
     const localTheme = localStorage.getItem(THEME_PREF_KEY);
     if (localTheme) {
       setSelectedTheme(localTheme as ThemeType);
+      return;
+    }
+
+    // Detect OS's preferred color scheme
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      setSelectedTheme(themeTypes.dark);
     }
   }, []);
 

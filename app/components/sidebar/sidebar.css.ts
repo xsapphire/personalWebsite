@@ -33,6 +33,7 @@ export const sidebarItem = style([
     },
   }),
   {
+    textDecoration: "none",
     color: baseColors.neutral.white,
     selectors: {
       "&:hover": {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PageHeader } from "../components/PageHeader";
 import { experienceData } from "../contents";
 import { sprinkles } from "../styles/sprinkles.css";
@@ -7,8 +7,22 @@ import { RoadMap } from "~/components/experience/RoadMap";
 
 export default function Experience() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const divRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTop = () => {
+    divRef.current?.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  });
+
   return (
-    <>
+    <div ref={divRef}>
       <PageHeader title="Experience" />
 
       <p
@@ -41,6 +55,6 @@ export default function Experience() {
           {experienceData.at(activeIndex)?.description}
         </div>
       </div>
-    </>
+    </div>
   );
 }
