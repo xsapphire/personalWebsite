@@ -8,9 +8,9 @@ export const bodyContainer = style([
     gridTemplateAreas: '"sidebar mainContent"',
     gridTemplateColumns: "max-content auto",
     margin: 0,
-    background: themeColors.background.body,
     fontFamily: "sans-serif",
     lineHeight: "24px",
+    background: themeColors.background.body,
     color: themeColors.font.body,
   },
   sprinkles({
@@ -25,7 +25,9 @@ export const sidebarContainer = style([
   box,
   flexAlignCenter,
   sprinkles({
-    borderRadius: "sidebar",
+    borderRadius: {
+      desktop: "sidebar",
+    },
     justifyContent: "space-between",
     padding: {
       portable: "medium",
@@ -34,6 +36,9 @@ export const sidebarContainer = style([
     height: {
       portable: "portableFull",
       desktop: "desktopFull",
+    },
+    position: {
+      portable: "fixed",
     },
   }),
   {
@@ -55,10 +60,17 @@ export const mainContentContainer = style([
       portable: "portableFull",
       desktop: "desktopFull",
     },
+    position: {
+      portable: "fixed",
+    },
+    marginLeft: {
+      portable: "mainContent",
+    },
   }),
   {
     gridArea: "mainContent",
     overflow: "auto",
+    background: themeColors.background.body,
   },
 ]);
 

@@ -23,7 +23,10 @@ export const card = style([
     background: themeColors.background.card,
   },
   sprinkles({
-    borderRadius: "card",
+    borderRadius: {
+      portable: "card",
+      desktop: "card",
+    },
   }),
 ]);
 

@@ -59,14 +59,15 @@ export default function Code() {
       <PageHeader title="Code" />
 
       <p>
-        Ths website is a little showcase of my Frontend code with React and
-        Typescript. It is built with Remix and Vanilla Extract CSS and hosted on
-        Cloudflare Page. You can view the code in my{" "}
+        This website is a showcase of my frontend code using{" "}
+        <strong>React</strong> and <strong>TypeScript</strong>. It is built with{" "}
+        <strong>Remix</strong> and <strong>Vanilla Extract CSS, </strong> and
+        hosted on <strong>Cloudflare Pages</strong>. You can view the code in my{" "}
         <NavLink
           to="https://github.com/xsapphire/personalWebsite/tree/master"
           className={link}
         >
-          Github Repo
+          Github Repository
         </NavLink>
         .
       </p>

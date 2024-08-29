@@ -7,6 +7,9 @@ const space = {
   medium: "16px",
   large: "24px",
   exLarge: "48px",
+  // Specific to main content container on portable viiew
+  // The sidebar itself is 66px wide, plus 16px padding horizontally
+  mainContent: "97px",
 };
 
 const iconDimension = {
@@ -17,7 +20,8 @@ const iconDimension = {
 };
 
 const height = {
-  portableFull: "calc(100vh - 32px)",
+  // https://developer.chrome.com/blog/url-bar-resizing
+  portableFull: "calc(100% - 32px)",
   desktopFull: "calc(100vh - 48px)",
 };
 
@@ -33,7 +37,6 @@ const border = {
 
 const nonResponsiveProperties = defineProperties({
   properties: {
-    borderRadius: radius,
     justifyContent: [
       "stretch",
       "flex-start",
@@ -53,6 +56,8 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "desktop",
   properties: {
+    borderRadius: radius,
+    position: ["fixed", "relative"],
     display: ["none", "grid", "flex", "block", "inline"],
     gap: space,
     flexDirection: ["row", "column"],
@@ -62,6 +67,7 @@ const responsiveProperties = defineProperties({
     paddingRight: space,
     marginTop: space,
     marginBottom: space,
+    marginLeft: space,
     width: iconDimension,
     height: { ...height, ...iconDimension },
     borderRight: border,

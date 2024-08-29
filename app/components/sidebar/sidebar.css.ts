@@ -27,7 +27,10 @@ export const sidebarItem = style([
       portable: "medium",
       desktop: "medium",
     },
-    borderRadius: "rounded",
+    borderRadius: {
+      portable: "rounded",
+      desktop: "rounded",
+    },
   }),
   {
     color: baseColors.neutral.white,
@@ -61,7 +64,10 @@ export const nameIcon = style([
       portable: "small",
       desktop: "medium",
     },
-    borderRadius: "card",
+    borderRadius: {
+      portable: "card",
+      desktop: "card",
+    },
   }),
 ]);
 
@@ -74,7 +80,10 @@ export const modeButton = style([
     },
     display: "flex",
     gap: "medium",
-    borderRadius: "rounded",
+    borderRadius: {
+      portable: "rounded",
+      desktop: "rounded",
+    },
   }),
   {
     color: baseColors.green["green-700"],
