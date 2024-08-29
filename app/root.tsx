@@ -1,4 +1,4 @@
-import { Links, Outlet, Scripts } from "@remix-run/react";
+import { Links, Meta, Outlet, Scripts } from "@remix-run/react";
 import { ThemeProvider } from "./ThemeProvider";
 import {
   bodyContainer,
@@ -13,6 +13,7 @@ export default function App() {
     <html lang="en">
       <head>
         <link rel="icon" href="data:image/x-icon;base64,AA" />
+        <Meta />
         <Links />
       </head>
 
