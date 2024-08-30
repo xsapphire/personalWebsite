@@ -12,7 +12,7 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="data:image/x-icon;base64,AA" />
+        <link href="../public/favicon.ico?" type="image/x-icon" />
         <Meta />
         <Links />
       </head>
