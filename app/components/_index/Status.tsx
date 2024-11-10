@@ -19,7 +19,7 @@ export const Status = (): ReactElement => {
 
       <div className={boxWithIcon}>
         <ThemedIcon faIcon={faMagnifyingGlassArrowRight} />
-        Open to Work
+        Cynch Inc.
       </div>
 
       <div className={boxWithIcon}>
